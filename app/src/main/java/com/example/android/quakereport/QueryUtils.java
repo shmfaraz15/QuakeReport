@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -62,8 +63,9 @@ public final class QueryUtils {
                 double mag= properties.getDouble("mag");
                 String location=properties.getString("place");
                 long timeInMillieSecs= properties.getLong("time");
+                String url=  properties.getString("url");
 
-                earthquakes.add(new Earthquake(mag,location,timeInMillieSecs));
+                earthquakes.add(new Earthquake(mag,location,timeInMillieSecs,url));
             }
 
 

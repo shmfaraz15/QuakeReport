@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:padding="16dp">
 
@@ -10,48 +11,74 @@
         android:id="@+id/txt_item_mag"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_gravity="center_vertical"
         android:background="@drawable/magnitude_circle"
-        android:fontFamily="sans-serif-medium"
+        app:fontFamily="sans-serif-medium"
         android:gravity="center"
+        android:layout_gravity="center_vertical"
         android:text="7.3"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/txt_item_locationOffset"
+    <LinearLayout
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp">
+
+        <TextView
+            android:id="@+id/txt_item_locationOffset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fontFamily="sans-serif-medium"
+            android:textAllCaps="true"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/textColorEarthquakeDetails"
+            android:text="30km S of"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_item_primary_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/textColorEarthquakeLocation"
+            android:text="Long placeholder location that should wrap to more than 2 lines of text"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="16dp">
 
-    <TextView
-        android:id="@+id/txt_item_primary_location"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="California"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/textColorEarthquakeDetails"
+            android:text="Feb 2,2015"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/txt_item_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Feb 2,2015"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_item_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="3:00 PM"
+            android:textSize="12sp"
+            android:textColor="@color/textColorEarthquakeDetails"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/txt_item_time"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.75"
-        android:text="3:00 PM"
-        android:textStyle="bold" />
 </LinearLayout>

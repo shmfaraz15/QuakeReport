@@ -1,7 +1,9 @@
 package com.example.android.quakereport;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +35,7 @@ public class EarthQuakeAdapter extends ArrayAdapter<Earthquake> {
             listView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
 
-        Earthquake currentEarthquake = getItem(position);
+        final Earthquake currentEarthquake = getItem(position);
         TextView textViewMagnitude = listView.findViewById(R.id.txt_item_mag);
         TextView textViewPrimaryLocation = listView.findViewById(R.id.txt_item_primary_location);
         TextView textViewLocationOffset = listView.findViewById(R.id.txt_item_locationOffset);
@@ -55,6 +57,15 @@ public class EarthQuakeAdapter extends ArrayAdapter<Earthquake> {
 
         textViewDate.setText(formatDate(date));
         textViewTime.setText(formatTime(date));
+
+        listView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(currentEarthquake.getUrl()));
+                getContext().startActivity(intent);
+            }
+        });
 
         return listView;
     }
